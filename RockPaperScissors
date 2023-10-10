@@ -1,0 +1,41 @@
+#variables and functions
+player_choice = "rock"
+computer_choice = "paper"
+#functions is a set of code that only runs when it is called
+
+import random
+
+
+def get_choices():
+  player_choice = input("Enter a choice - rock, paper, scissors: ")
+  options = ["rock", "paper", "scissors"]
+  computer_choice = random.choice(options)
+  choices = {"player": player_choice, "computer": computer_choice}
+  return choices
+
+
+#functions can receive arguements when data is received. arguements are in the ()
+def check_win(player, computer):
+  print("You chose " + player + ",Computer chose " + computer)
+  if player == computer:
+    return "Tie"
+  elif player == "rock":
+    if computer == "scissors":
+      return "player wins"
+    else:
+      return "computer wins"
+  elif player == "paper":
+    if computer == "rock":
+      return "player wins"
+    else:
+      return "computer wins"
+  elif player == "scissors":
+    if computer == "paper":
+      return "player wins"
+    else:
+      return "computer wins"
+
+
+choices = get_choices()
+result = check_win(choices["player"], choices["computer"])
+print(result)
